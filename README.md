@@ -1,5 +1,3 @@
-
-=======
 <ul>
   <li>React</li>
   <li>TypeScript</li>
