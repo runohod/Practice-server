@@ -1,3 +1,1 @@
-export (QueryProvider) from './queryProvider.tsx';
-
-
+export {QueryProvider} from './queryProvider';
