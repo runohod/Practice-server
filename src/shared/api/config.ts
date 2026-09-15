@@ -1,10 +1,4 @@
-const apiUrl = apiUrl();
-
-export const apiUrl = () => {
-    return (
-
-    )
-};
+export const apiUrl = 'https://rickandmortyapi.com/api'
 
 
 
