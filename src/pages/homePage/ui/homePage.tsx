@@ -1,3 +1,6 @@
+import { getCharacters } from '@/entities/character';
+import @tanstack/react-query
+
 export const HomePage = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-neutral-900">
