@@ -7,7 +7,7 @@ export const HomePage = () => {
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("");
   const [page, setPage] = useState(1);
-  let characters = useQuery({
+  const characters = useQuery({
     queryKey: ["characters", search, status, page],
     queryFn: () => getCharacters(search, status, page),
   });
@@ -41,8 +41,8 @@ export const HomePage = () => {
       <button className="text-red-500 border" disabled={page === 1} onClick={() => setPage(page - 1)}>
         «назад»
       </button>
-      {characters.isPending && <p className="text-red-500">loading...»</p>}
-      {characters.isError && <p className="text-red-500">error</p>}
+      {characters.isPending && <div className="text-red-500">loading...»</div>}
+      {characters.isError && <div className="text-red-500">error</div>}
       {characters.data && (
         <section>
           {characters.data.results.length === 0 && (
@@ -51,10 +51,10 @@ export const HomePage = () => {
           {/* <p className="text-red-500">{characters.data.results.length}</p> */}
           {characters.data.results.map((character) => (
             <Link to={`/characters/${character.id}`} key={character.id} className="text-red-500 flex gap-4">   
-              <p className="w-64">
+              <div className="w-64">
                 {character.name} - {character.status} - {character.species} -{" "}
                 {character.gender} - {character.origin.name}
-              </p>{" "}
+              </div>{" "}
               <img src={character.image} alt={character.name} />
             </Link>
           ))}
