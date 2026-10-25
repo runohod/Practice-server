@@ -1,10 +1,10 @@
 import { QueryProvider } from '@/app/providers';
-import { HomePage } from '@/pages/homePage';
+import { AppRoutes } from '@/app/routes';
 
 export const App = () => {
   return (
     <QueryProvider>
-      <HomePage />
+      <AppRoutes />
     </QueryProvider>
   );
 };

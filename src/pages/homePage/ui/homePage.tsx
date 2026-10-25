@@ -1,6 +1,7 @@
 import { getCharacters } from "@/entities/character";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const HomePage = () => {
   const [search, setSearch] = useState("");
@@ -47,15 +48,15 @@ export const HomePage = () => {
           {characters.data.results.length === 0 && (
             <p className="text-red-500">пустой результат</p>
           )}
-          <p className="text-red-500">{characters.data.results.length}</p>
+          {/* <p className="text-red-500">{characters.data.results.length}</p> */}
           {characters.data.results.map((character) => (
-            <div key={character.id} className="text-red-500 flex gap-4">
+            <Link to={`/characters/${character.id}`} key={character.id} className="text-red-500 flex gap-4">   
               <p className="w-64">
                 {character.name} - {character.status} - {character.species} -{" "}
                 {character.gender} - {character.origin.name}
               </p>{" "}
               <img src={character.image} alt={character.name} />
-            </div>
+            </Link>
           ))}
         </section>
       )}
