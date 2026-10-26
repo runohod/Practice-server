@@ -19,7 +19,7 @@ export function CharacterPage() {
   return (
     <>
       {" "}
-      <h1>Страница персонажа {character.data?.name}</h1>{" "}
+      <h1>Страница персонажа {character.data?.name || "Имя не указано"}</h1>{" "}
       <img src={character.data?.image} alt={character.data?.name} />{" "}
       {character.data?.gender} - {character.data?.origin.name} -{" "}
       {character.data?.status} - {character.data?.species}
