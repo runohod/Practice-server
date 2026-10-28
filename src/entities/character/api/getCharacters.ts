@@ -6,11 +6,10 @@ export async function getCharacters(
   status: string,
   page: number,
 ): Promise<CharactersResponse> {
-  const params = new URLSearchParams({
-    name: person,
-    status: status,
-    page: String(page),
-  });
+  const params = new URLSearchParams();
+  params.set("page", page.toString());
+  if (person) params.set("name", person);
+  if (status) params.set("status", status);
   const characterUrl = apiUrl + "/character?" + params.toString();
   const response = await fetch(characterUrl);
   if (response.status === 404) {

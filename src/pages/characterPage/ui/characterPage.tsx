@@ -19,15 +19,26 @@ export function CharacterPage() {
     return <div>Загрузка персонажа…</div>;
   }
   return (
-    <>
+    <main className="min-h-screen bg-neutral-900 text-white p-6">
       {" "}
-      <h1>Страница персонажа {character.data?.name || "Имя не указано"}</h1>{" "}
-      <img src={character.data?.image} alt={character.data?.name} />{" "}
-      {character.data?.gender} - {character.data?.origin.name} -{" "}
-      {character.data?.status} - {character.data?.species}
-      <br />
-      <Link className="text-xl font-bold text-red-500" to={`/characters/${nextId}`}>Следующий персонаж</Link>
-    </>
+      <h1 className="text-3xl font-bold text-red-500 mb-6 text-center">
+        Страница персонажа {character.data?.name || "Имя не указано"}
+      </h1>{" "}
+      <img
+        className="block mx-auto rounded-xl"
+        src={character.data?.image}
+        alt={character.data?.name}
+      />{" "}
+      <div className="mt-4 text-center text-neutral-300">
+        {character.data?.gender} - {character.data?.origin.name} -{" "}
+        {character.data?.status} - {character.data?.species}
+      </div>
+      <Link
+        className="block w-fit mx-auto mt-6 rounded-lg bg-red-600 px-5 py-3 text-lg font-semibold text-white"
+        to={`/characters/${nextId}`}
+      >
+        Следующий персонаж
+      </Link>
+    </main>
   );
 }
-
