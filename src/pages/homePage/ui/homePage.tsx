@@ -43,6 +43,17 @@ export const HomePage = () => {
     return () => observer.disconnect();
   }, [characters.hasNextPage]);
 
+  const handleStatusChange = (value: string) => {
+    setStatus(value);
+    const nextParams = new URLSearchParams(searchParams);
+    if (value === "") {
+      nextParams.delete("status");
+    } else {
+      nextParams.set("status", value);
+    }
+    setSearchParams(nextParams);
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-start bg-neutral-900">
       <header className="w-full max-w-6xl px-4 py-6">
@@ -56,16 +67,7 @@ export const HomePage = () => {
           <select
             className="text-red-500 border"
             value={status}
-            onChange={(event) => {
-              setStatus(event.target.value);
-              const nextParams = new URLSearchParams(searchParams);
-              if (event.target.value === "") {
-                nextParams.delete("status");
-              } else {
-                nextParams.set("status", event.target.value);
-              }
-              setSearchParams(nextParams);
-            }}
+            onChange={(event) => handleStatusChange(event.target.value)}
           >
             <option className="text-red-500" value="">
               «Все статусы»
